@@ -1,7 +1,7 @@
 # YouPy
 A small python application I made that downloads YouTube videos 
 
-I learned how to use the pytube library for downloading and tkinter for my GUI
+Made using `pytube` and `tkinter`
 
 This project is a work in progress and I will be updating the README with pictures of the GUI
 
