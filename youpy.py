@@ -2,9 +2,10 @@ import sqlite3
 import re
 import sys
 from tkinter import *
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
 from tkinter import font as font
 from pytube import YouTube
+
 
 Label(text="YouTube link").pack()
 linkentry = Entry()
@@ -57,13 +58,13 @@ def download():
     else:
         streams = yt.streams.filter(file_extension='mp4', resolution = "1080p")
        
-       
-    
+    directory = filedialog.askdirectory() 
+
     try:
         if len(title) == 0:
-            path = streams[0].download()
+            path = streams[0].download(directory)
         else:
-            path = streams[0].download(None, title)
+            path = streams[0].download(directory, title)
     except:
         messagebox.showerror("Error", "The video is not available in that resolution")
         return
