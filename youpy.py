@@ -58,7 +58,7 @@ def download():
     else:
         streams = yt.streams.filter(file_extension='mp4', resolution = "1080p")
        
-    directory = filedialog.askdirectory() 
+    directory = filedialog.askdirectory(initialdir="/", title='Select a directory') 
 
     try:
         if len(title) == 0:
