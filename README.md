@@ -15,6 +15,8 @@ I will also be updating this project with the ability to download the project an
   Sanitization for input (blacklisting certain characters for names of files)
   
   Change path of download (currently saves to folder where youpy.py is)
+
+  General code clean-up
   
 
   
