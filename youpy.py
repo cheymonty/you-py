@@ -79,7 +79,7 @@ def download():
     
     pathmessage = "Download is complete, the video is saved at " + path 
     messagebox.showinfo("Download Complete!", pathmessage)
-    # SAVE_PATH = "/Users/chey/Desktop"
+
 
    
 def myexit():
