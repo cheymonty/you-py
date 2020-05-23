@@ -7,6 +7,7 @@ from tkinter import font as font
 from pytube import YouTube
 
 
+
 Label(text="YouTube link").pack()
 linkentry = Entry()
 linkentry.pack()
@@ -34,8 +35,6 @@ connection = sqlite3.connect("videodata.db")
 db = connection.cursor()
 
 def download():
-
-
     link = linkentry.get()
     title = titleentry.get()
     ex = extension.get()
@@ -60,13 +59,14 @@ def download():
        
     directory = filedialog.askdirectory(initialdir="/", title='Select a directory') 
 
+    if len(title) == 0:
+        title = yt.title
+
     try:
-        if len(title) == 0:
-            path = streams[0].download(directory)
-        else:
-            path = streams[0].download(directory, title)
+        path = streams[0].download(directory, title)
     except:
-        messagebox.showerror("Error", "The video is not available in that resolution")
+        message = title + " is not available in " + output[v.get()]
+        messagebox.showerror("Error", message)
         return
 
     if ex == 0:
@@ -97,7 +97,7 @@ def history():
 
     count = 1
     if not history:
-        Label(historywin, text="You haven't downloaded a video yet!").pack()
+        Label(historywin, text="You haven't downloaded any videos yet!").pack()
     else:
         for data in history:
             Label(historywin, text=count, font='Helvetica 22 bold').pack()
