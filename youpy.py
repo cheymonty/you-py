@@ -2,34 +2,47 @@ import sqlite3
 import re
 import sys
 from tkinter import *
+# from tkinter.ttk import * 
 from tkinter import messagebox, filedialog
 from tkinter import font as font
 from pytube import YouTube
 
+Label(text="YOUPY",  font='Helvetica 22 bold').grid(row=0,column=2,padx=10,pady=10)
 
-
-Label(text="YouTube link").pack()
+Label(text="YouTube link").grid(row=1, column=0, padx=5, pady=10)
 linkentry = Entry()
-linkentry.pack()
-Label(text="Save video as").pack()
+linkentry.grid(row=2, column=0, padx=5, pady=10)
+
+
+Label(text="Save as").grid(row=5, column=0, padx=10, pady=10)
 titleentry = Entry()
-titleentry.pack()
+titleentry.grid(row=6, column=0, padx=10, pady=10)
 
 
 v = IntVar()
 v.set(0)
 
-output = ["360p", "720p", "1080p (VIDEO ONLY)"]
-Label(text="Select resolution").pack()
+output = ["360p", "720p", "1080p"]
+Label(text="Select resolution (1080p - Video ONLY):").grid(row=1, column=2, padx=10, pady=10)
 
+col = 3
+r = 1
 for i, res in enumerate(output):
-    Radiobutton(text=res, variable=v, value=i).pack()
+    if col == 5:
+        col = 3
+        r = 2
+    Radiobutton(text=res, variable=v, value=i).grid(row=r, column=col, padx=10, pady=10)
+    col += 1
+
 
 extension = IntVar()
-Label(text="Select type").pack()
+Label(text="Select type:").grid(row=4, column=2, padx=10, pady=10)
 types = ["Audio", "Video"]
+
+col = 3
 for i, ex in enumerate(types):
-    Radiobutton(text=ex, variable=extension,value=i).pack()
+    Radiobutton(text=ex, variable=extension,value=i).grid(row=4, column=col, padx=10, pady=10)
+    col += 1
 
 connection = sqlite3.connect("videodata.db")
 db = connection.cursor()
@@ -52,10 +65,8 @@ def download():
     
     if ex == 0:
         streams = yt.streams.filter(only_audio=True)
-    elif v.get() == 0 or v.get() == 1:
-        streams = yt.streams.filter(progressive=True, file_extension='mp4', resolution = output[v.get()])
     else:
-        streams = yt.streams.filter(file_extension='mp4', resolution = "1080p")
+        streams = yt.streams.filter(progressive=True, file_extension='mp4', resolution = output[v.get()])
        
     directory = filedialog.askdirectory(initialdir="/", title='Select a directory') 
 
@@ -113,13 +124,17 @@ def history():
 
 
 root = Tk()
+
 root.title('YouPy Downloader')
 root.geometry("600x600")
 root.withdraw()
 
-Button(text="Download!", command=lambda: download()).pack()
-Button(text="Exit", command=lambda: myexit()).pack()
-Button(text="Show download history", command=lambda: history()).pack()
+Button(text="Download!", command=lambda: download()).grid(row=7, column=2, padx=10, pady=10)
+
+# .grid(row=0, column=1, padx=10, pady=10)
+Button(text="Download history", command=lambda: history()).grid(row=7, column=3, padx=10, pady=10)
+Button(text='Exit', command=lambda: myexit()).grid(row=8, column=2, padx=10, pady=10)
+
 
 
 root.mainloop()
