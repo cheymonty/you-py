@@ -35,7 +35,7 @@ for i, res in enumerate(output):
 
 
 extension = IntVar()
-Label(text="Select type:").grid(row=4, column=2, padx=10, pady=10)
+Label(text="Select format:").grid(row=4, column=2, padx=10, pady=10)
 types = ["Audio", "Video"]
 
 col = 3
