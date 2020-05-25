@@ -2,7 +2,6 @@ import sqlite3
 import re
 import sys
 from tkinter import *
-# from tkinter.ttk import * 
 from tkinter import messagebox, filedialog
 from tkinter import font as font
 from pytube import YouTube
@@ -130,8 +129,6 @@ root.geometry("600x600")
 root.withdraw()
 
 Button(text="Download!", command=lambda: download()).grid(row=7, column=2, padx=10, pady=10)
-
-# .grid(row=0, column=1, padx=10, pady=10)
 Button(text="Download history", command=lambda: history()).grid(row=7, column=3, padx=10, pady=10)
 Button(text='Exit', command=lambda: myexit()).grid(row=8, column=2, padx=10, pady=10)
 
