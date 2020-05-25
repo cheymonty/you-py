@@ -1,5 +1,4 @@
-![Image of GUI]
-(https://github.com/cheymonty/YouPy/blob/master/gui.png)
+![Image of GUI](gui.png)
 # YouPy
 A small python application I made that downloads YouTube videos 
 
