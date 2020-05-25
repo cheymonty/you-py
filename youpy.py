@@ -6,7 +6,7 @@ from tkinter import messagebox, filedialog
 from tkinter import font as font
 from pytube import YouTube
 
-Label(text="YOUPY",  font='Helvetica 22 bold').grid(row=0,column=2,padx=10,pady=10)
+Label(text="YOUPY", fg='red', font='Courier 35 bold').grid(row=0,column=2,padx=10,pady=10)
 
 Label(text="YouTube link").grid(row=1, column=0, padx=5, pady=10)
 linkentry = Entry()
@@ -22,7 +22,7 @@ v = IntVar()
 v.set(0)
 
 output = ["360p", "720p", "1080p"]
-Label(text="Select resolution (1080p - Video ONLY):").grid(row=1, column=2, padx=10, pady=10)
+Label(text="Select resolution (1080p video is silent):").grid(row=1, column=2, padx=10, pady=10)
 
 col = 3
 r = 1
