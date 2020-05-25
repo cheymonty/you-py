@@ -1,4 +1,5 @@
-![Image of GUI](gui.png)
+![Image of GUI](/images/main.png)
+![Image of History](/images/history.png)
 # YouPy
 A small python application I made that downloads YouTube videos 
 
