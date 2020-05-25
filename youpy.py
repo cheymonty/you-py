@@ -1,9 +1,6 @@
 import sqlite3
-import re
 import sys
-from tkinter import *
-from tkinter import messagebox, filedialog
-from tkinter import font as font
+from tkinter import Label,Button,Entry,IntVar,Radiobutton,Tk,messagebox, filedialog, font
 from pytube import YouTube
 
 Label(text="YOUPY", fg='red', font='Courier 35 bold').grid(row=0,column=2,padx=10,pady=10)
