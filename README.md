@@ -1,9 +1,9 @@
 ![Image of GUI](/examples/main.png)
 ![Image of History](/examples/history.png)
-# YouPy
+# You-Py
 A small python application I made that downloads YouTube videos 
 
-Made using `pytube` and `tkinter`
+Made using `pytube3` and `tkinter`
 
 This project is a work in progress and I will be updating the README with pictures of the GUI
 
